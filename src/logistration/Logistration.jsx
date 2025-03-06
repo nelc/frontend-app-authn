@@ -13,17 +13,19 @@ import { ChevronLeft } from "@openedx/paragon/icons";
 import PropTypes from "prop-types";
 import { Navigate, useNavigate } from "react-router-dom";
 
+import nafath from "./nafath.svg";
 import BaseContainer from "../base-container";
 import { clearThirdPartyAuthContextErrorMessage } from "../common-components/data/actions";
 import { tpaProvidersSelector } from "../common-components/data/selectors";
 import messages from "../common-components/messages";
-import { LOGIN_PAGE, REGISTER_PAGE } from "../data/constants";
+import { LOGIN_PAGE, REGISTER_PAGE, NAFATH_PAGE } from "../data/constants";
 import {
   getTpaHint,
   getTpaProvider,
   updatePathWithQueryParams,
 } from "../data/utils";
 import { LoginPage } from "../login";
+import NafathPage from "../nafath";
 import { backupLoginForm } from "../login/data/actions";
 import { RegistrationPage } from "../register";
 import { backupRegistrationForm } from "../register/data/actions";
@@ -162,7 +164,8 @@ const Logistration = (props) => {
                   onSelect={(tabKey) => handleOnSelect(tabKey, selectedPage)}
                 >
                   {/* mubeen code tab change */}
-                   <Tab
+                  <Tab title={<img src={nafath} />} eventKey={NAFATH_PAGE} />
+                  <Tab
                     title={formatMessage(messages["logistration.sign.in"])}
                     eventKey={LOGIN_PAGE}
                   />
@@ -171,7 +174,6 @@ const Logistration = (props) => {
                     title={formatMessage(messages["logistration.register"])}
                     eventKey={REGISTER_PAGE}
                   />
-                 
                 </Tabs>
               )
             )}
@@ -190,7 +192,9 @@ const Logistration = (props) => {
                     )}
                   </h3>
                 )}
-              {selectedPage === LOGIN_PAGE ? (
+              {selectedPage === NAFATH_PAGE ? (
+                <NafathPage />
+              ) : selectedPage === LOGIN_PAGE ? (
                 <LoginPage
                   institutionLogin={institutionLogin}
                   handleInstitutionLogin={handleInstitutionLogin}
