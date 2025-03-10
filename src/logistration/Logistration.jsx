@@ -105,9 +105,7 @@ const Logistration = (props) => {
 
   return (
     <BaseContainer>
-      {/* Mubeen Code class add 102 */}
       <div className="auth_main_wrap">
-        {/* Mubeen Code added line 109 to 116 */}
         <div className="auth_logo_wrap">
           <Hyperlink destination={getConfig().MARKETING_SITE_BASE_URL}>
             <Image

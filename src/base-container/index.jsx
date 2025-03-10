@@ -43,12 +43,12 @@ const BaseContainer = ({ children, showWelcomeBanner, fullName }) => {
       {/* <div className="col-md-12 extra-large-screen-top-stripe" /> */}
     {/* Mubeen Code add justify-content-center class in 45 line and add class*/}
       <div className="layout justify-content-center auth_wrapper">
-        <MediaQuery maxWidth={breakpoints.small.maxWidth - 1}>
+        {/* <MediaQuery maxWidth={breakpoints.small.maxWidth - 1}>
           {showWelcomeBanner ? <AuthSmallLayout fullName={fullName} /> : <DefaultSmallLayout />}
         </MediaQuery>
         <MediaQuery minWidth={breakpoints.medium.minWidth} maxWidth={breakpoints.large.maxWidth - 1}>
           {showWelcomeBanner ? <AuthMediumLayout fullName={fullName} /> : <DefaultMediumLayout />}
-        </MediaQuery>
+        </MediaQuery> */}
          {/* Mubeen Code comment left logo design from sign in 52 to 54 */}
         {/* <MediaQuery minWidth={breakpoints.extraLarge.minWidth}>
           {showWelcomeBanner ? <AuthLargeLayout fullName={fullName} /> : <DefaultLargeLayout />}
