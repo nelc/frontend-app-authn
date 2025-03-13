@@ -6,7 +6,7 @@ import {
   Form, Icon, IconButton, OverlayTrigger, Tooltip, useToggle,
 } from '@openedx/paragon';
 import {
-  Check, Remove, Visibility, VisibilityOff,
+  Check, Remove,
 } from '@openedx/paragon/icons';
 import PropTypes from 'prop-types';
 
@@ -14,6 +14,9 @@ import messages from './messages';
 import { LETTER_REGEX, NUMBER_REGEX } from '../data/constants';
 import { clearRegistrationBackendError, fetchRealtimeValidations } from '../register/data/actions';
 import { validatePasswordField } from '../register/data/utils';
+
+import HidePassword from './hide-password.svg'
+import ViewPassword from './view-password.svg'
 
 const PasswordField = (props) => {
   const { formatMessage } = useIntl();
@@ -75,12 +78,12 @@ const PasswordField = (props) => {
       onFocus={handleFocus}
       onBlur={handleBlur}
       name="passwordIcon"
-      src={VisibilityOff}
+      src={() => <img src={HidePassword} />}
       iconAs={Icon}
       onClick={setHiddenTrue}
       size="sm"
       variant="secondary"
-      alt={formatMessage(messages['hide.password'])}
+      alt={formatMessage(messages["hide.password"])}
     />
   );
 
@@ -89,7 +92,7 @@ const PasswordField = (props) => {
       onFocus={handleFocus}
       onBlur={handleBlur}
       name="passwordIcon"
-      src={Visibility}
+      src={() => <img src={ViewPassword} />}
       iconAs={Icon}
       onClick={setHiddenFalse}
       size="sm"
